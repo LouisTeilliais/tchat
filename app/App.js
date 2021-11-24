@@ -14,11 +14,11 @@ export class App extends Component {
 
   componentDidMount(){
 
-    this.socket = io("https://e7a5-77-135-189-178.ngrok.io")
+    this.socket = io("https://1baa-77-135-189-178.ngrok.io/msg")
     this.socket.on("chat message", msg => {
-      console.log("dfssd", this.state.chatArray);
+      // console.log("dfssd", this.state.chatArray);
       this.setState({ chatArray: [...this.state.chatArray, msg]});
-      console.log("dfssd", this.state.chatArray);
+      // console.log("dfssd", this.state.chatArray);
     })
   };
 
@@ -26,8 +26,6 @@ export class App extends Component {
       this.socket.emit("chat message", this.state.chatMessage);
       this.setState({chatMessage: ""});
   };
-
-  
 
   render() {
 
